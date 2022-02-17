@@ -1,7 +1,7 @@
 apiVersion: krew.googlecontainertools.github.com/v1alpha2
 kind: Plugin
 metadata:
-  name: {{ .PluginName }}
+  name: image-refresher
 spec:
   version: "v0.1.0"
   platforms:
@@ -9,47 +9,47 @@ spec:
       matchLabels:
         os: linux
         arch: amd64
-    uri: https://github.com/{{ .Owner }}/{{ .Repo }}/releases/download/v0.1.0/{{ .PluginName }}_linux_amd64.tar.gz
+    uri: https://github.com/huseyinbabal/image-refresher/releases/download/v0.1.0/image-refresher_linux_amd64.tar.gz
     sha256: ""
     files:
-    - from: "./{{ .PluginName }}"
+    - from: "./image-refresher"
       to: "."
     - from: LICENSE
       to: "."
-    bin: "{{ .PluginName }}"
+    bin: "image-refresher"
   - selector:
       matchLabels:
         os: darwin
         arch: amd64
-    uri: https://github.com/{{ .Owner }}/{{ .Repo }}/releases/download/v0.1.0/{{ .PluginName }}_darwin_amd64.tar.gz
+    uri: https://github.com/huseyinbabal/image-refresher/releases/download/v0.1.0/image-refresher_darwin_amd64.tar.gz
     sha256: ""
     files:
-    - from: "./{{ .PluginName }}"
+    - from: "./image-refresher"
       to: "."
     - from: LICENSE
       to: "."
-    bin: "{{ .PluginName }}"
+    bin: "image-refresher"
   - selector:
       matchLabels:
         os: windows
         arch: amd64
-    uri: https://github.com/{{ .Owner }}/{{ .Repo }}/releases/download/v0.1.0/{{ .PluginName }}_windows_amd64.zip
+    uri: https://github.com/huseyinbabal/image-refresher/releases/download/v0.1.0/image-refresher_windows_amd64.zip
     sha256: ""
     files:
-    - from: "/{{ .PluginName }}.exe"
+    - from: "/image-refresher.exe"
       to: "."
     - from: LICENSE
       to: "."
-    bin: "{{ .PluginName }}.exe"
+    bin: "image-refresher.exe"
   shortDescription: A new plugin
-  homepage: https://github.com/{{ .Owner }}/{{ .Repo }}
+  homepage: https://github.com/huseyinbabal/image-refresher
   caveats: |
     Usage:
-      $ kubectl {{ .PluginName }}
+      $ kubectl image-refresher
 
     For additional options:
-      $ kubectl {{ .PluginName }} --help
-      or https://github.com/{{ .Owner }}/{{ .Repo }}/blob/v0.1.0/doc/USAGE.md
+      $ kubectl image-refresher --help
+      or https://github.com/huseyinbabal/image-refresher/blob/v0.1.0/doc/USAGE.md
 
   description: |
     This is a new plugin

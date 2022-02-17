@@ -1,10 +1,10 @@
-project_name: {{ .PluginName }}
+project_name: image-refresher
 release:
   github:
-    owner: {{ .Owner }}
-    name: {{ .Repo }}
+    owner: huseyinbabal
+    name: image-refresher
 builds:
-  - id: {{ .PluginName }}
+  - id: image-refresher
     goos:
     - linux
     - windows
@@ -17,12 +17,12 @@ builds:
       - GO111MODULE=on
     main: cmd/plugin/main.go
     ldflags: -s -w
-      -X github.com/{{ .Owner }}/{{ .Repo }}/pkg/version.version=
+      -X github.com/huseyinbabal/image-refresher/pkg/version.version=
 archives:
-  - id: {{ .PluginName }}
+  - id: image-refresher
     builds:
-    - {{ .PluginName }}
-    name_template: {{ `"{{ .ProjectName }}_{{ .Os }}_{{ .Arch }}"` }}
+    - image-refresher
+    name_template: "{{ .ProjectName }}_{{ .Os }}_{{ .Arch }}"
     format_overrides:
     - goos: windows
       format: zip
